@@ -1,5 +1,4 @@
 @smokeTest
-
 Feature: Login Page de University web
 
   Scenario: Validar Login exitoso a la pagina web

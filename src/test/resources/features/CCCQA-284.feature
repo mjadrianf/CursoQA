@@ -1,4 +1,4 @@
-@smokeTest
+@analitics
 
 Feature: Upgrade de Pagina de Analitics
 

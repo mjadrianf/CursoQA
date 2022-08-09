@@ -1,4 +1,4 @@
-@smokeTest
+@contact_us
 Feature: Contact Us Page Test Case
 
   Scenario Outline: Validar el envio exitoso del Formulario

@@ -41,8 +41,6 @@ public class Base_Page {
         wait.until(ExpectedConditions.alertIsPresent());
         String alert_msg = getDriver().switchTo().alert().getText();
         Assert.assertEquals(alert_msg, mensaje);
-
-
     }
 
 }

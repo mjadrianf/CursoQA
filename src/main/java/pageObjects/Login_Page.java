@@ -18,7 +18,7 @@ public class Login_Page extends Base_Page{
     public Login_Page(){super();}
 
     public void navigateToUrl(){
-        navigateTo_Url(GlobalVars.HOME_PAGE_URL+"/Login-Portal/index.html?");
+        navigateTo_Url(GlobalVars.HOME_PAGE_URL+"/Login-Portal/index.html");
     }
 
     public void setUsernameTxt(String usename){
