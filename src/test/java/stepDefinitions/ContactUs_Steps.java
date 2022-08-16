@@ -43,4 +43,8 @@ public class ContactUs_Steps extends Base_Page {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
+    @When("Yo ingreso el nombre de usuario valido <FirstName>")
+    public void yoIngresoElNombreDeUsuarioValidoFirstName() {
+    }
 }
