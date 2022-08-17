@@ -21,17 +21,18 @@ public class ContactUs_Page extends Base_Page {
     private @FindBy(xpath = "//*[@id='form_buttons']/input[2]")
     WebElement submit_btn;
 
-    private @FindBy(name = "contact_reply")
-    WebElement contact_reply;
+    private @FindBy(css ="div#contact_reply > h1")
+    WebElement mensajeExito;
+
+    private @FindBy(css ="body")
+    WebElement mensajeNoExito;
+
 
     public ContactUs_Page(){super();}
-    ////*[@id="form_buttons"]/input[2]
-    //xpath
 
-    //    private @FindBy(css = "input.feedback-input")
-    //    WebElement firstname_txt;
     public void navigateToURL(){
-        navigateTo_Url(GlobalVars.HOME_PAGE_URL+"/Contact-Us/contactus.html");
+        navigateTo_Url(GlobalVars.HOME_PAGE_URL+"\\Contact-Us\\contactus.html");
+
     }
 
     public void setFirstname_txt(String firstName){
@@ -43,18 +44,30 @@ public class ContactUs_Page extends Base_Page {
     }
 
     public void setEmail_txt(String email){
-        sendKeys(email_txt, email);
+        sendKeys(email_txt,email);
     }
 
     public void setMessage_txt(String message){
-        sendKeys(message_txt, message);
+        sendKeys(message_txt,message);
     }
 
     public void setSubmit_btn(){
         waitForElementAndClick(submit_btn);
+
     }
 
-    public void contact_reply(){
-        
+    public void getMessageOk_txt(){
+        waitForElementAndValidate("Thank You for your Message!",mensajeExito);
+
+
     }
+
+    public void getMessageNoOk_txt(){
+        waitForElementAndValidate("Error: Invalid email address",mensajeNoExito);
+
+
+    }
+
+
+
 }

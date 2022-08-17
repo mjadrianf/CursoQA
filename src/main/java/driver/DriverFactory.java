@@ -14,12 +14,13 @@ import java.util.Properties;
 public class DriverFactory {
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
-    public static WebDriver getDriver() {
-        if (webDriver.get() == null) {
+    public static WebDriver getDriver(){
+        if(webDriver.get() == null){
             webDriver.set(createDriver());
         }
         return webDriver.get();
     }
+
 
     private static WebDriver createDriver() {
         WebDriver driver = null;
@@ -39,26 +40,26 @@ public class DriverFactory {
                 break;
             }
         }
-            driver.manage().window().maximize();
-            return driver;
-        }
-
-        private static String getBrowserType() {
-            String browserType = null;
-
-            try {
-                Properties properties = new Properties();
-                FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
-                properties.load(file);
-                browserType = properties.getProperty("browser").toLowerCase().trim();
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-            return browserType;
-        }
-
-        public static void cleanupDriver() {
-            webDriver.get().quit();
-            webDriver.remove();
-        }
+        driver.manage().window().maximize();
+        return driver;
     }
+    private static String getBrowserType () {
+        String browserType = null;
+
+        try {
+            Properties properties = new Properties();
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
+            properties.load(file);
+            browserType = properties.getProperty("browser").toLowerCase().trim();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return browserType;
+    }
+
+    public static void cleanupDriver() {
+        webDriver.get().quit();
+        webDriver.remove();
+    }
+}
+

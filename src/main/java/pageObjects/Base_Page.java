@@ -38,9 +38,16 @@ public class Base_Page {
 
     public void waitForAlertAndValidate(String mensaje){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(GlobalVars.DEFAULT_EXPLICIT_TIMEOUT));
-        wait.until(ExpectedConditions.alertIsPresent());
+        wait.until((ExpectedConditions.alertIsPresent()));
         String alert_msg = getDriver().switchTo().alert().getText();
         Assert.assertEquals(alert_msg, mensaje);
+    }
+
+    public void waitForElementAndValidate(String mensaje,WebElement element){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(GlobalVars.DEFAULT_EXPLICIT_TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        Assert.assertEquals(element.getText(),mensaje);
+
     }
 
 }

@@ -4,9 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.GlobalVars;
 
-public class Login_Page extends Base_Page{
+public class Login_Page extends Base_Page {
 
-    private @FindBy(id= "text")
+    private @FindBy(id="text")
     WebElement usernameTxt;
 
     private @FindBy(id="password")
@@ -18,11 +18,13 @@ public class Login_Page extends Base_Page{
     public Login_Page(){super();}
 
     public void navigateToUrl(){
-        navigateTo_Url(GlobalVars.HOME_PAGE_URL+"/Login-Portal/index.html");
+        navigateTo_Url(GlobalVars.HOME_PAGE_URL+"\\Login-Portal\\index.html");
+
     }
 
-    public void setUsernameTxt(String usename){
-        sendKeys(usernameTxt,usename);
+    public void setUsernameTxt(String username){
+        sendKeys(usernameTxt,username);
+
     }
 
     public void setPasswordTxt(String password){
@@ -36,4 +38,5 @@ public class Login_Page extends Base_Page{
     public void validateAlertExitosa(){waitForAlertAndValidate("validation succeeded");}
 
     public void validateAlertFallido(){waitForAlertAndValidate("validation failed");}
+
 }
